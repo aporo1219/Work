@@ -59,6 +59,9 @@
     <ClInclude Include="obstacles.h">
       <Filter>ヘッダー ファイル\オブジェクト</Filter>
     </ClInclude>
+    <ClInclude Include="dispenser.h">
+      <Filter>ヘッダー ファイル\オブジェクト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,6 +83,9 @@
       <Filter>ソース ファイル\シーン</Filter>
     </ClCompile>
     <ClCompile Include="obstacles.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="dispenser.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
   </ItemGroup>

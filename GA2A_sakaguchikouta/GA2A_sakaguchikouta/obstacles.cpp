@@ -8,7 +8,7 @@ CObstacles_LEFT_UP::CObstacles_LEFT_UP(int x, int y)
 {
 	//èâä˙à íu
 	pos.x = 50;
-	pos.y = 80;
+	pos.y = 100;
 
 	radius = 40.0;
 
@@ -23,7 +23,7 @@ int CObstacles_LEFT_UP::Action(list<unique_ptr<Base>>& base)
 
 void CObstacles_LEFT_UP::Draw()
 {
-	DrawCircle(pos.x,pos.y,radius,GetColor(255, 255, 0), true);
+	DrawCircle(pos.x,pos.y,radius,GetColor(0, 0, 255), true);
 }
 
 
@@ -33,7 +33,7 @@ CObstacles_RIGHT_UP::CObstacles_RIGHT_UP(int x, int y)
 {
 	//èâä˙à íu
 	pos.x = 720;
-	pos.y = 80;
+	pos.y = 250;
 
 	radius = 40.0;
 

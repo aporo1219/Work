@@ -19,6 +19,8 @@ constexpr auto WINDOW_HEIGHT = 600;	//縦幅
 
 //グローバル変数
 extern int GSCORE;
+extern bool VANISH;
+extern int GLIFE;
 
 enum objID
 {
@@ -27,6 +29,7 @@ enum objID
 	OBSTACLES_LEFT_UP,
 	OBSTACLES_RIGHT_UP,
 	OBSTACLES_RIGHT_DOWN,
+	Dispenser,
 };
 
 //2D用

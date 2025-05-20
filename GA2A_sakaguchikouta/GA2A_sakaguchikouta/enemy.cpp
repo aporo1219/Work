@@ -20,13 +20,17 @@ CEnemy::CEnemy(int x, int y)
 	vec = Vector_SetLength(vec, 30.0f);
 
 	ID = ENEMY;
+	Vector_Normalize(vec);
+
 }
 
 int CEnemy::Action(list<unique_ptr<Base>>& base)
 {
-	
+	float L = 0.0f;
 	pos.x += vec.x;
 	pos.y += vec.y;
+
+	L = Vector_Length(vec);
 
 	for (auto i = base.begin();i != base.end();i++)
 	{
@@ -37,10 +41,11 @@ int CEnemy::Action(list<unique_ptr<Base>>& base)
 		{
 			float O_L_U = ((CObstacles_LEFT_UP*)(*i).get())->radius;//障害物左上の情報を見ることができる
 			float distanceO_L_U = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
+			distanceO_L_U -= L;
 			if (distanceO_L_U < radius + O_L_U)
 			{
 				vec.y = -vec.y;//ベクトルを逆にする
-				vec.y += 5.0;
+				vec.y += 1.0;
 				break;
 			}
 		}
@@ -50,10 +55,11 @@ int CEnemy::Action(list<unique_ptr<Base>>& base)
 		{
 			float O_R_U = ((CObstacles_RIGHT_UP*)(*i).get())->radius;//障害物右上の情報を見ることができる
 			float distanceO_R_U = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
+			distanceO_R_U -= L;
 			if (distanceO_R_U < radius + O_R_U)
 			{
 				vec.y = -vec.y;//ベクトルを逆にする
-				vec.y += 5.0;
+				vec.y += 1.0;
 				break;
 			}
 		}
@@ -62,12 +68,13 @@ int CEnemy::Action(list<unique_ptr<Base>>& base)
 		else if ((*i)->ID == OBSTACLES_RIGHT_DOWN)
 		{
 			float O_R_D = ((CObstacles_RIGHT_DOWN*)(*i).get())->radius;//障害物右下の情報を見ることができる
-			float distanceO_R_D = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
+			float distanceO_R_D = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める]
+			distanceO_R_D -= L;
 			if (distanceO_R_D < radius + O_R_D)
 			{
 				
 				vec.y = -vec.y;//ベクトルを逆にする
-				vec.y += 5.0;
+				vec.y += 1.0;
 				break;
 			}
 		}

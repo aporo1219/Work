@@ -1,24 +1,2 @@
-﻿  circle.cpp
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(12,11): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(21,11): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(26,10): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(27,24): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(56,20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(64,18): warning C4305: '*=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(72,17): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(85,17): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(98,17): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(121,34): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(140,13): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\circle.cpp(140,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  enemy.cpp
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(11,11): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(14,10): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(15,10): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(38,16): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(51,16): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(64,16): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(94,13): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\GA2A_sakaguchikouta\enemy.cpp(94,6): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  コードを生成中...
+﻿  game.cpp
   GA2A_sakaguchikouta.vcxproj -> C:\Users\GA2A\Desktop\2D運動\GA2A_sakaguchikouta\x64\Debug\GA2A_sakaguchikouta.exe

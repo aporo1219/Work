@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="circle.h" />
+    <ClInclude Include="dispenser.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="game.h" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="circle.cpp" />
+    <ClCompile Include="dispenser.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="function.cpp" />
     <ClCompile Include="game.cpp" />

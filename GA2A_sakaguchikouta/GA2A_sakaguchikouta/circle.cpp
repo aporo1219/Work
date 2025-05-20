@@ -11,7 +11,7 @@ CCircle::CCircle()
 {
 	radius = 32.0f;
 
-	pos.x = 100.0f;
+	pos.x = 400.0f;
 	pos.y = WINDOW_HEIGHT / 2;
 
 }
@@ -23,7 +23,7 @@ CCircle::CCircle(int x, int y)
 	//初期位置
 	//pos.x = x;
 	//pos.y = y;
-	pos.x = radius;
+	pos.x = 400.0f;
 	pos.y = WINDOW_HEIGHT - radius;
 
 
@@ -35,16 +35,20 @@ CCircle::CCircle(int x, int y)
 
 	vec = Vector_SetLength(vec, 30.0f);
 
-
+	Vector_Normalize(vec);
 	
 }
 
 int CCircle::Action(list<unique_ptr<Base>>& base)
 {
+	float L = 0.0f;
+
 	vec.y += g;
 
 	pos.x += vec.x;
 	pos.y += vec.y;
+	
+	L = Vector_Length(vec);
 
 	//当たり判定
 	{
@@ -55,11 +59,16 @@ int CCircle::Action(list<unique_ptr<Base>>& base)
 			{
 				float e_radius = ((CEnemy*)(*i).get())->radius;//敵の情報を見ることができる
 				float distance = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
+				distance -= L;
 				if (distance < radius + e_radius)
 				{
 					//当たっている
-					//GSCORE++;
+					GSCORE++;
 					FLAG = false;
+					if (FLAG == false)
+					{
+						VANISH = true;
+					}
 					vec.y = -vec.y;//ベクトルを逆にする
 					vec.y *= 0.8;//反発
 					break;
@@ -67,32 +76,40 @@ int CCircle::Action(list<unique_ptr<Base>>& base)
 			}
 
 			//障害物左上
+			//ライフの回復
 			else if ((*i)->ID == OBSTACLES_LEFT_UP)
 			{
 				float O_L_U = ((CObstacles_LEFT_UP*)(*i).get())->radius;//障害物左上の情報を見ることができる
 				float distanceO_L_U = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
-				if (distanceO_L_U < radius +O_L_U)
+				if (distanceO_L_U < radius + O_L_U)
 				{
-					vec.y = -vec.y;//ベクトルを逆にする
-					vec.y += 5.0;
+					FLAG = false;
+					GLIFE++;
+					if (FLAG == false)
+					{
+						VANISH = true;
+					}
 					break;
 				}
 			}
 
 			//障害物右上
+			//反発力が高い
 			else if ((*i)->ID == OBSTACLES_RIGHT_UP)
 			{
 				float O_R_U = ((CObstacles_RIGHT_UP*)(*i).get())->radius;//障害物右上の情報を見ることができる
 				float distanceO_R_U = DistanceF(pos.x, pos.y, (*i)->pos.x, (*i)->pos.y);//2点間距離を求める
+				distanceO_R_U -= L;
 				if (distanceO_R_U < radius + O_R_U)
 				{
 					vec.y = -vec.y;//ベクトルを逆にする
-					vec.y += 5.0;
+					vec.y *= 1.1;
 					break;
 				}
 			}
 			
 			//障害物右下
+			//スコアの減少
 			else if ((*i)->ID == OBSTACLES_RIGHT_DOWN)
 			{
 				float O_R_D = ((CObstacles_RIGHT_DOWN*)(*i).get())->radius;//障害物右下の情報を見ることができる
@@ -101,8 +118,12 @@ int CCircle::Action(list<unique_ptr<Base>>& base)
 				{
 					
 					GSCORE--;
-					vec.y = -vec.y;//ベクトルを逆にする
-					vec.y += 5.0;
+					FLAG = false;
+					GLIFE--;
+					if (FLAG == false)
+					{
+						VANISH = true;
+					}
 					break;
 				}
 			}
@@ -113,6 +134,7 @@ int CCircle::Action(list<unique_ptr<Base>>& base)
 	if (pos.x<radius || pos.x>WINDOW_WIDTH - radius)
 	{
 		vec.x = -vec.x;
+		vec.x *= 1.0;
 	}
 
 	//画面の下で跳ね返る
@@ -121,14 +143,14 @@ int CCircle::Action(list<unique_ptr<Base>>& base)
 		
 		pos.y = WINDOW_HEIGHT - radius - 1;//-1は、線幅
 		vec.y = -vec.y;//ベクトルを逆にする
-		//vec.y *= 0.8;
+		vec.y *= 1.0;
 	}
 	
 	//画面の外にでたら消える
 	//if (pos.y > WINDOW_HEIGHT + radius * 2) FLAG = false;
 
 	//時間が経過すると円の削除
-	clear_to_frame++;
+	
 	//if (clear_to_frame == 120)
 	//FLAG = false;//120fで削除
 
