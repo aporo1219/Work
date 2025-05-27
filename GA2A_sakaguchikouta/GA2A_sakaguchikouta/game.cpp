@@ -41,13 +41,12 @@ int CGame::Update() {
 	//クリックした場合
 	{
 		
-		if ((GetMouseInput() & MOUSE_INPUT_LEFT) && !mouse_left && VANISH == true)
+		if ((GetMouseInput() & MOUSE_INPUT_LEFT) && !mouse_left && VANISH == true && GLIFE > 0)
 		{
 			int x,y;
 			GetMousePoint(&x, &y);
 			base.emplace_back((unique_ptr<Base>)new CCircle(x, y));
 			VANISH = false;
-			GLIFE--;
 		}
 		
 	}
@@ -76,6 +75,7 @@ void CGame::Draw()
 	DrawFormatString(400, 32, GetColor(255, 255, 255), "黄色は反発力が高い");
 	DrawFormatString(400, 48, GetColor(255, 255, 255), "赤はスコアとライフが減少");
 	DrawFormatString(400, 64, GetColor(255, 255, 255), "青はライフを回復");
+	DrawFormatString(400, 80, GetColor(255, 255, 255), "動いている円はスコアアップ");
 	DrawBox(400, 0, 650, 100, GetColor(0, 255, 255), false);
 	
 	//listオブジェクトの描画
@@ -106,8 +106,7 @@ CGame::~CGame()
 }
 
 void GameOver()
-{
-	
+{	 
 	DrawString(400, 160, "そこまで" ,GetColor(255, 255, 255));
-	
+	DrawFormatString(400, 176, GetColor(255, 0, 0),"スコアは%dです。",GSCORE);
 }

@@ -7,8 +7,8 @@
 CObstacles_LEFT_UP::CObstacles_LEFT_UP(int x, int y)
 {
 	//èâä˙à íu
-	pos.x = 50;
-	pos.y = 100;
+	pos.x = 200;
+	pos.y = 200;
 
 	radius = 40.0;
 
@@ -33,7 +33,7 @@ CObstacles_RIGHT_UP::CObstacles_RIGHT_UP(int x, int y)
 {
 	//èâä˙à íu
 	pos.x = 720;
-	pos.y = 250;
+	pos.y = 300;
 
 	radius = 40.0;
 

@@ -10,10 +10,12 @@ public:
 
 	//”¼Œa
 	int radius;
-	
+	int clear_to_frame;
 
 	int Action(list<unique_ptr<Base>>&);
 	void Draw();
+
+	
 
 	bool vanish = true;
 };
